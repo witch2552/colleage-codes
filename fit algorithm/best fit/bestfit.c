@@ -36,6 +36,14 @@ void bestFit(int blockSize[], int blocks, int processSize[], int processes) {
         else
             printf("Not Allocated\n");
     }
+
+    // Fragmentation check
+    int totalFragmentation = 0;
+    for (int i = 0; i < blocks; i++) {
+        totalFragmentation += blockSize[i];
+    }
+
+    printf("\nTotal Unused Memory (Fragmentation): %d\n", totalFragmentation);
 }
 
 int main() {
