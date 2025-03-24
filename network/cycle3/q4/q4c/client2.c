@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <arpa/inet.h>
+#include <math.h>
+
 #define PORT 8083
 int main() {
 int sockfd = socket(AF_INET, SOCK_STREAM, 0);
