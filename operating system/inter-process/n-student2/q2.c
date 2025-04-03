@@ -20,16 +20,17 @@ int compare(const void *a, const void *b) {
 
 int main() {
     int n;
+   // created shared memory 
     key_t key = ftok("shmfile", 65);
     int shmid = shmget(key, MAX_STUDENTS * sizeof(struct Student), 0666 | IPC_CREAT);
     if (shmid == -1) {
-        perror("shmget failed");
+        perror("shmget failed");//error handling
         exit(1);
     }
 
     struct Student *students = (struct Student *)shmat(shmid, NULL, 0);
     if (students == (void *)-1) {
-        perror("shmat failed");
+        perror("shmat failed");//error handling
         exit(1);
     }
 
@@ -55,7 +56,7 @@ int main() {
         }
         shmdt(students);
         exit(0);
-    } else { // Parent process
+    } else { // Parent process wait and clean up
         wait(NULL);
         shmdt(students);
         shmctl(shmid, IPC_RMID, NULL);

@@ -10,6 +10,7 @@ void bestFit(int blockSize[], int blocks, int processSize[], int processes) {
         allocation[i] = -1;
 
     // Best fit algorithm
+    //outer loop for iterating each process inner loop best memmory allocation 
     for (int i = 0; i < processes; i++) {
         int bestIdx = -1;
         for (int j = 0; j < blocks; j++) {
