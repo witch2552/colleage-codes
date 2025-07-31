@@ -1,0 +1,5 @@
+(socketfuction)
+socketfd 
+socket(AF_INET,SOCK_STREAM,protocol:0);
+1 para:IP version 4
+2nd para : tcp socket
